@@ -1,2 +1,3 @@
-# mm-api
-MM REST API Micro-Like-Service
+# MM REST API Micro-Like-Service
+
+Documentation at [MM/README.md](MM/README.md)
