@@ -39,3 +39,11 @@ git push origin master
 ## Create a pull request for AWNICS repo from your forked branch
 
 ```
+
+
+### Collaboration Shortcuts
+```
+Shortcut when you already dont need merge
+
+git pull origin develop & git add . & git commit -m "Updated the README" --author="Rahul Vishwakarma <rahul@awnics.com>" & git push origin develop
+```
