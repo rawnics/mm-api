@@ -1,9 +1,14 @@
 # mm-api
 MM REST API Micro-Like-Service
 
+# Configuration
+Available in the [mm-controller/src/main/resources](mm-controller/src/main/resources) folder 
 
+# Test
+mvn install
 
-
+# Build
+mvn package -DskipTests (and all other usage docs in this `README` apply).
 
 
 
@@ -31,7 +36,6 @@ git push origin master
 
 # Create a pull request for AWNICS repo from your forked branch
 
-# Build
-mvn install (and all other usage docs in this `README` apply).
+
 
 ```
