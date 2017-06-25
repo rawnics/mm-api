@@ -1,5 +1,10 @@
 # MM REST API Micro-Like-Service
 
+### Pre-requisite
+- A development environment setup with [https://rahulvishwakarma.wordpress.com/2017/06/13/repository-management-with-nexus-3-for-your-mavenized-project-including-release-and-snapshot-distribution/](Nexus & Maven) should be available at http://localhost:8081/repository
+- Mysql Database [https://rahulvishwakarma.wordpress.com/2015/01/19/want-to-setup-your-own-xampp-installation-in-a-local-development-vm-here-are-the-simple-steps-to-do-so/](Development Setup)
+- Its optional to go with a full fledged [https://rahulvishwakarma.wordpress.com/2017/06/12/continuous-integration-development-environment-with-jenkins-pipeline-jacoco-and-sonarqube/](Jenkins environment)
+
 ### Configuration
 - Properties in the [mm-controller/src/main/resources](mm-controller/src/main/resources) folder
 - Edit datasource in the config folder
@@ -45,7 +50,7 @@ git push origin master
 
 ### Collaboration Shortcuts
 ```
-Shortcut when you already dont need merge
+Shortcut when you dont need merge
 
 git pull origin develop & git add . & git commit -m "Updated the README" --author="Rahul Vishwakarma <rahul@awnics.com>" & git push origin develop
 ```
