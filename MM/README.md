@@ -47,10 +47,18 @@ git push origin master
 
 ```
 
-
 ### Collaboration Shortcuts
 ```
-Shortcut when you dont need merge
+Development shortcut when you dont need merge
 
 git pull origin develop & git add . & git commit -m "Updated the README" --author="Rahul Vishwakarma <rahul@awnics.com>" & git push origin develop
+
+In case there is a versioning scheme then do not forget to tag and push it 
+git tag -a v0.1 -m "SpringBoot JDBC v0.1"
+git push origin --tags
+
+In case you need to work n a particular tag then checkout that specifically
+git show v0.1
+git checkout -b version0.1 v0.1
+
 ```
