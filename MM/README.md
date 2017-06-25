@@ -1,21 +1,21 @@
 # MM REST API Micro-Like-Service
 
-## Configuration
+### Configuration
 Available in the [mm-controller/src/main/resources](mm-controller/src/main/resources) folder 
 
-## Test
+### Test
 `mvn install`
 
-## Build
+### Build
 `mvn package -DskipTests` (and all other usage docs in this `README` apply).
 
-## Run
-Change directory to the [mm-controller](mm-controller) folder
+### Run
+- Change directory to the [mm-controller](mm-controller) folder
 `mvn spring-boot:run`
 
 
 
-# How to update?
+## How to update?
 ```
 ### Work with the AWNICS DEVELOP 
 
