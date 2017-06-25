@@ -1,17 +1,19 @@
 # MM REST API Micro-Like-Service
 
 ### Configuration
-Available in the [mm-controller/src/main/resources](mm-controller/src/main/resources) folder 
+- Properties in the [mm-controller/src/main/resources](mm-controller/src/main/resources) folder
+- Edit datasource in the config folder
+- Edit logger config in the log4j2-spring.xml 
 
 ### Test
-`mvn install`
+- `mvn install` (Build all sub modules and run unit tests)
 
 ### Build
-`mvn package -DskipTests` (and all other usage docs in this `README` apply).
+- `mvn package -DskipTests` (and all other usage docs in this `README` apply).
 
 ### Run
 - Change directory to the [mm-controller](mm-controller) folder
-`mvn spring-boot:run`
+- Execute `mvn spring-boot:run`
 
 
 
