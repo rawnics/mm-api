@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="log-path">logs</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}:%L - %msg%n
+				</pattern>
+				>
+			</PatternLayout>
+		</Console>
+		<File name="Error-File-Appender" fileName="${log-path}/MM-controller-error.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}:%L - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<RollingFile name="App-Rolling-File-Appender" filename="${log-path}/MM-controller.log"
+					 filepattern="${logPath}/%d{yyyy-MM-dd-hh-mm-ss}-rolling.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}:%L - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="2 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.awn" level="error" additivity="false">
+			<AppenderRef ref="Error-File-Appender"/>
+		</Logger>
+		<Logger name="com.awn" level="info" additivity="false">
+			<AppenderRef ref="App-Rolling-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="App-Rolling-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Root>
+	</Loggers>
+</Configuration>
