@@ -29,9 +29,9 @@ git commit -m "Updated the code" --author="Rahul Vishwakarma <rahul@awnics.com>"
 git push origin develop
 git push origin master
 
-# Create a pull request for AWNICS repo fron your forked branch
+# Create a pull request for AWNICS repo from your forked branch
 
 # Build
-npm install (and all other usage docs in this `README` apply).
+mvn install (and all other usage docs in this `README` apply).
 
 ```
