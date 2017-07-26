@@ -22,7 +22,7 @@ import com.awn.mm.store.LocationService;
 @RestController
 public class LocationController {
 
-	private static final Logger LOGGER = LogManager.getLogger(LocationController.class);
+	private static final Logger log = LogManager.getLogger(LocationController.class);
 	
 	@Autowired
 	private LocationService locationService;
@@ -44,7 +44,7 @@ public class LocationController {
 	 */
 	@RequestMapping(path="/about", method=RequestMethod.GET)
 	public String about(){
-		LOGGER.info("Executing the about service request");
+		log.info("Executing the about service request");
 		return "Springframework based REST interface for the MM program";
 	}
 	
@@ -56,7 +56,7 @@ public class LocationController {
 	 */
 	@RequestMapping(path="/mm", method=RequestMethod.GET)
 	public List<LocationStore> getPaStore(){
-		LOGGER.info("Executing the MM service request");
+		log.info("Executing the MM service request");
 		List<LocationStore> list = locationService.getLocationByName("a");
 		return list;
 	}

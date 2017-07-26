@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<surefire.version>2.20</surefire.version>
 	</properties>
 
 	<modules>
@@ -32,6 +33,7 @@
 		<module>mm-controller</module>
 	</modules>
 
+<!-- 
 	<distributionManagement>
 		<repository>
 			<id>nexus</id>
@@ -44,7 +46,7 @@
 			<url>http://localhost:8081/repository/maven-snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-
+ -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -143,7 +145,7 @@
 							<link>https://docs.oracle.com/javase/8/docs/api/</link>
 						</links>
 						<show>protected</show>
-						<source>1.8</source>
+						<source>${java.version}</source>
 						<sourcepath>${basedir}</sourcepath>
 						<additionalparam>-Xdoclint:none</additionalparam>
 					</configuration>
@@ -159,6 +161,28 @@
 							</configuration>
 						</execution>
 					</executions>
+				</plugin>
+								<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.6</version>
+					<configuration>
+						<outputDirectory>${basedir}/target/site</outputDirectory>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${surefire.version}</version>
+					<configuration>
+						<parallel>methods</parallel>
+						<threadCount>2</threadCount>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-report-plugin</artifactId>
+					<version>>${surefire.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

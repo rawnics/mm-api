@@ -31,7 +31,7 @@ import com.awn.mm.store.LocationService;
 @SpringBootTest
 public class LocationControllerTest {
 
-	private static final Logger LOGGER = LogManager.getLogger(LocationControllerTest.class);
+	private static final Logger log = LogManager.getLogger(LocationControllerTest.class);
 
 	@Rule
 	public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/generated-snippets"); 
@@ -50,12 +50,12 @@ public class LocationControllerTest {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(new LocationController(locationService))
 				.apply(org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration(this.restDocumentation)) 
 				.build();
-		LOGGER.info("Set up");
+		log.info("Set up");
 	}
 	
 	@After
 	public void tearDown() throws Exception {
-		LOGGER.info("Tear down");
+		log.info("Tear down");
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class LocationControllerTest {
 	 */
 	@Test
 	public void testAbout() throws Exception {
-		LOGGER.info("Implemented a mock test for the about interface");
+		log.info("Implemented a mock test for the about interface");
 		this.mockMvc
 		.perform(MockMvcRequestBuilders
 				.get("/about")
@@ -86,7 +86,7 @@ public class LocationControllerTest {
 	//@Ignore
 	@Test
 	public void testLocationService() throws Exception {
-		LOGGER.info("Implemented a mock test for the Location interface");
+		log.info("Implemented a mock test for the Location interface");
 		this.mockMvc
 		.perform(MockMvcRequestBuilders
 				.get("/mm")

@@ -14,8 +14,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.awn.config.repository.ApplicationDataSourceConfig;
 import com.awn.mm.entity.LocationStore;
 import com.awn.mm.store.LocationService;
 
@@ -25,11 +27,12 @@ import com.awn.mm.store.LocationService;
  * @author Rahul Vishwakarma
  *
  */
+@ContextConfiguration(classes = {ApplicationConfig.class, ApplicationDataSourceConfig.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class LocationServiceTest {
 
-	private static final Logger LOGGER = LogManager.getLogger(LocationServiceTest.class);
+	private static final Logger log = LogManager.getLogger(LocationServiceTest.class);
 
 	@Autowired
 	private LocationService locationService;
@@ -39,6 +42,7 @@ public class LocationServiceTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		log.info("----------------- RUN "+this.getClass().getCanonicalName()+" ---------------------");
 	}
 
 	/**
@@ -46,6 +50,7 @@ public class LocationServiceTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		log.info("----------------- END "+this.getClass().getCanonicalName()+"---------------------");
 	}
 
 	/**
@@ -53,12 +58,11 @@ public class LocationServiceTest {
 	 */
 	@Test
 	public final void testGetLocationByName() {
-		LOGGER.info("----------------- Test the service response ---------------------");
 		List<LocationStore> list = null;
 		try {
 			list = locationService.getLocationByName("test");
 		} catch (Exception e) {
-			LOGGER.error(e.getMessage(),e);
+			log.error(e.getMessage(),e);
 		}
 		Assert.assertNotNull(list);
 	}
