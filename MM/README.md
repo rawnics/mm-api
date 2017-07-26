@@ -8,11 +8,11 @@
 
 ### Pre-requisite
 - A development environment setup with [Nexus & Maven](https://rahulvishwakarma.wordpress.com/2017/06/13/repository-management-with-nexus-3-for-your-mavenized-project-including-release-and-snapshot-distribution/) should be available at http://localhost:8081/repository
-- Mysql Database [Development Setup](https://rahulvishwakarma.wordpress.com/2015/01/19/want-to-setup-your-own-xampp-installation-in-a-local-development-vm-here-are-the-simple-steps-to-do-so/)
 - Its optional to go with a full fledged [Jenkins environment](https://rahulvishwakarma.wordpress.com/2017/06/12/continuous-integration-development-environment-with-jenkins-pipeline-jacoco-and-sonarqube/)
 - Setup Java JDK 1.8 with JAVA_HOME environment variable configured in your PATH
 - Setup Apache Maven and have MAVEN_HOME environment variable configured in your PATH
-- Network access to the MySQL and MongoDB servers
+- Mysql Database [Development Setup](https://www.apachefriends.org/index.html)
+- Setup access to [Local MongoDB server](https://www.mongodb.org/dl/win32/x86_64-2008plus) ($ `mongod -dbpath C:\Dock\mongodb\data`)
 
 ### Organization
 - MM is a multi-module project with mm-controller having the tests and main entry-point
@@ -45,6 +45,7 @@ An aggregated javadocs will be exported in the folder  ~/MM/target/site folder
 ### Run
 - Change directory to the [mm-controller](mm-controller) folder
 - Execute `mvn spring-boot:run`
+- Verify the MM API using HTTP GET at [about](http://localhost:8085/about) & [mm](http://localhost:8085/mm)
 
 ### Actuator
 Upon running the server successfully spring actuator configured on local port 8081 can be queried

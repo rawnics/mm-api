@@ -9,7 +9,13 @@
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}(${project.packaging})</name>
-	<description>Spring Boot based MM project</description>
+	<description>Spring Boot based MM API
+
+Execute: 
+cd mm-controller &amp;&amp; mvn spring-boot:run
+
+Documentation:
+https://github.com/AWNICS/mm-api/tree/master/MM</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -30,6 +36,7 @@
 		<module>mm-config</module>
 		<module>mm-domain</module>
 		<module>mm-service</module>
+		<module>mm-security</module>
 		<module>mm-controller</module>
 	</modules>
 
@@ -48,6 +55,19 @@
 	</distributionManagement>
  -->
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>

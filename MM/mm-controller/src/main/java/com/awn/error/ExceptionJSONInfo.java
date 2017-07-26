@@ -1,5 +1,5 @@
 // Generated with Blu Age version 5.4.0
-package com.awn.common.exception;
+package com.awn.error;
 
 public class ExceptionJSONInfo {
 
