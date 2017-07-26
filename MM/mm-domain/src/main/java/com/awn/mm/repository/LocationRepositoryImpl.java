@@ -24,7 +24,7 @@ import com.awn.mm.entity.LocationStore;
 @Repository
 public class LocationRepositoryImpl implements LocationRepository {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(LocationRepositoryImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(LocationRepositoryImpl.class);
 
 	@Autowired
 	@Qualifier("jdbcTemplate") 
@@ -41,9 +41,9 @@ public class LocationRepositoryImpl implements LocationRepository {
 	public List<LocationStore> findByName(String name) {		
 		// Fetch the query from: sql.properties
 		String sql = applicationQueryConfig.getQueryString(ApplicationQueryEnum.SQL_MM_LOCATION_S10);
-		LOGGER.info("Query: "+sql);
+		log.info("Query: "+sql);
 		List<LocationStore> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(LocationStore.class));
-		LOGGER.info("SQL query and BeanPropertyRowMapper. Result: "+list);
+		log.info("SQL query and BeanPropertyRowMapper. Result: "+list);
 		return list;
 	}
 

@@ -29,7 +29,7 @@ import com.awn.mm.repository.LocationRepository;
 @SpringBootTest
 public class LocationRepositoryTest {
 
-	private static final Logger LOGGER = LogManager.getLogger(LocationRepositoryTest.class);
+	private static final Logger log = LogManager.getLogger(LocationRepositoryTest.class);
 
 	@Autowired
 	private LocationRepository locationRepository;
@@ -39,7 +39,7 @@ public class LocationRepositoryTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		LOGGER.info("Set up");
+		log.info("Set up");
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class LocationRepositoryTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
-		LOGGER.info("Tear down");
+		log.info("Tear down");
 	}
 
 
@@ -56,12 +56,12 @@ public class LocationRepositoryTest {
 	 */
 	@Test
 	public final void testFindByName() {
-		LOGGER.info("----------------- Test the repository response ---------------------");
+		log.info("----------------- Test the repository response ---------------------");
 		List<LocationStore> list = null;
 		try {
 			list = locationRepository.findByName("test");
 		} catch (Exception e) {
-			LOGGER.error(e.getMessage(),e);
+			log.error(e.getMessage(),e);
 		}
 		Assert.assertNotNull(list);
 	}

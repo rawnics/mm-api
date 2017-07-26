@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.awn.config.repository;
 
 import javax.sql.DataSource;
@@ -19,6 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
  * @author Rahul Vishwakarma
@@ -36,13 +34,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 //@PropertySource(value={"classpath:application.properties"})
 public class ApplicationDataSourceConfig {
 
-	private static final Logger LOGGER = LogManager.getLogger(ApplicationDataSourceConfig.class);
+	private static final Logger log = LogManager.getLogger(ApplicationDataSourceConfig.class);
 
 	@Primary
 	@Bean(name="dataSource")
 	@ConfigurationProperties(prefix="spring.datasource")
 	public DataSource dataSource() {
-		LOGGER.info(">>>>>>>>>>>>>>> Initializing Datasource for the project <<<<<<<<<<<<<<<<<<<");
+		log.info(">>>>>>>>>>>>>>> Initializing Datasource for the project <<<<<<<<<<<<<<<<<<<");
 		return DataSourceBuilder
 				.create()
 				//Reading from the application.properties file
@@ -56,10 +54,15 @@ public class ApplicationDataSourceConfig {
 	@Primary
     @Bean(name="jdbcTemplate")
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-    	LOGGER.info(">>>>>>>>>>>>>>> Initializing JdbcTemplate for the project <<<<<<<<<<<<<<<<<<<");
+    	log.info(">>>>>>>>>>>>>>> Initializing JdbcTemplate for the project <<<<<<<<<<<<<<<<<<<");
         return new JdbcTemplate(dataSource);
     }
 	
-	
+
+	@Primary
+	@Bean(name = "transactionManager")
+	public DataSourceTransactionManager txManager() {
+		return new DataSourceTransactionManager(dataSource());
+	}
 	
 }

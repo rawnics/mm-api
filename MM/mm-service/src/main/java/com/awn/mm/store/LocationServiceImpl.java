@@ -20,7 +20,7 @@ import com.awn.mm.repository.LocationRepository;
 @Service
 public class LocationServiceImpl implements LocationService{
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(LocationServiceImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(LocationServiceImpl.class);
 
 	@Autowired
 	private LocationRepository locationRepository;
@@ -30,7 +30,7 @@ public class LocationServiceImpl implements LocationService{
 	 */
 	@Override
 	public List<LocationStore> getLocationByName(String name) {
-		LOGGER.info("Service layer call for AuStore");
+		log.info("Service layer call for AuStore");
 		return locationRepository.findByName(name);
 	}
 

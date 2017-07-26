@@ -40,6 +40,10 @@
 			<AppenderRef ref="App-Rolling-File-Appender" />
 			<AppenderRef ref="Console-Appender" />
 		</Logger>
+		<Logger name="org.springframework.jdbc.core.JdbcTemplate" level="debug" additivity="false">
+			<AppenderRef ref="App-Rolling-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
 		<Root level="info">
 			<AppenderRef ref="App-Rolling-File-Appender" />
 			<AppenderRef ref="Console-Appender" />
