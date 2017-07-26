@@ -1,9 +1,9 @@
 # MM REST API Micro-Like-Service
 ------------------------------------------
--- Name    : README for MM API
--- Date    : 17/07/2017
--- Owner   : Rahul
--- Purpose : Summarize the modules & usage
+- Name    : README for MM API
+- Date    : 17/07/2017
+- Owner   : Rahul
+- Purpose : Summarize the modules & usage
 ------------------------------------------
 
 ### Pre-requisite
